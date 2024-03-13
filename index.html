@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+
+    <title>Tapkyr</title>
+</head>
+<body>
+<header>
+    <nav  class="nav-bar">
+        <div style="display:flex">
+
+            <h1><a href="index.html" style="text-decoration: none; color:white">Tapkyr</a></h1>
+        </div>
+        <div>
+            <ul style="list-style: none; display: flex">
+                <li><span class="rules" onclick="a()">Ойын ережесі</span></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<div id="rule"></div>
+
+<div class="container">
+    <div class="alert-container" data-alert-container></div>
+    <div data-guess-grid class="guess-grid">
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+    </div>
+    <div data-keyboard class="keyboard">
+        <div class="space"></div>
+        <button class="key" data-key="Ә">Ә</button>
+        <button class="key" data-key="І">І</button>
+        <button class="key" data-key="Ң">Ң</button>
+        <button class="key" data-key="Ғ">Ғ</button>
+        <button class="key" data-key="Ү">Ү</button>
+        <button class="key" data-key="Ұ">Ұ</button>
+        <button class="key" data-key="Қ">Қ</button>
+        <button class="key" data-key="Ө">Ө</button>
+        <button class="key" data-key="Һ">Һ</button>
+        <button data-delete class="key large">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                <path fill="var(--color-tone-1)" d="M22 3H7c-.69 0-1.23.35-1.59.88L0 12l5.41 8.11c.36.53.9.89 1.59.89h15c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H7.07L2.4 12l4.66-7H22v14zm-11.59-2L14 13.41 17.59 17 19 15.59 15.41 12 19 8.41 17.59 7 14 10.59 10.41 7 9 8.41 12.59 12 9 15.59z"></path>
+            </svg>
+        </button>
+        <div class="space"></div>
+        <button class="key" data-key="Й">Й</button>
+        <button class="key" data-key="Ц">Ц</button>
+        <button class="key" data-key="У">У</button>
+        <button class="key" data-key="К">К</button>
+        <button class="key" data-key="Е">Е</button>
+        <button class="key" data-key="Н">Н</button>
+        <button class="key" data-key="Г">Г</button>
+        <button class="key" data-key="Ш">Ш</button>
+        <button class="key" data-key="Щ">Щ</button>
+        <button class="key" data-key="З">З</button>
+        <button class="key" data-key="Щ">Х</button>
+        <button class="key" data-key="З">Ъ</button>
+        <button class="key" data-key="Ф">Ф</button>
+        <button class="key" data-key="Ы">Ы</button>
+        <button class="key" data-key="В">В</button>
+        <button class="key" data-key="А">А</button>
+        <button class="key" data-key="П">П</button>
+        <button class="key" data-key="Р">Р</button>
+        <button class="key" data-key="О">О</button>
+        <button class="key" data-key="Л">Л</button>
+        <button class="key" data-key="Д">Д</button>
+        <button class="key" data-key="Д">Ж</button>
+        <button class="key" data-key="Д">Э</button>
+        <button class="key" data-key="Д">Ё</button>
+        <div class="space"></div>
+        <button class="key" data-key="Я">Я</button>
+        <button class="key" data-key="Ч">Ч</button>
+        <button class="key" data-key="С">С</button>
+        <button class="key" data-key="М">М</button>
+        <button class="key" data-key="И">И</button>
+        <button class="key" data-key="Т">Т</button>
+        <button class="key" data-key="Ь">Ь</button>
+        <button class="key" data-key="Б">Б</button>
+        <button class="key" data-key="Ю">Ю</button>
+        <button data-enter class="key large">Енгізу</button>
+
+    </div>
+
+</div>
+<script>
+    function a(){
+        const rules = document.getElementById("rule");
+        if(rules.innerText !==''){
+            closeDiv()
+        }else{
+            const div = document.createElement("div");
+            div.classList.add("myDiv")
+            div.innerHTML=`
+            <div class="myDiv-line"><span class="close" onclick="closeDiv()">x</span></div>
+            <!-- Content inside the div -->
+            <p>Ойын ережелері:</p>
+            <div><ul>
+            <li>Әрбір болжам жарамды 5 әріптен тұратын сөз болуы керек.</li>
+            <li>Плиткалардың түсі сіздің болжамыңыз сөзге қаншалықты жақын екенін көрсету үшін өзгереді.</li>
+            </ul></div>
+            <div class="aspects">
+                <ul style="list-style: none">
+                    <li><span class="letter" style="background-color: green"><span style="width: 14px">A</span></span> сөзде және дұрыс жерде.</li>
+                    <li><span class="letter" style="background-color:  hsl(49, 51%, 47%)">Ә</span> сөзде, бірақ қате жерде.</li>
+                    <li><span class="letter" style="background-color: grey">Б</span> ешбір жерде сөзде жоқ.</li>
+                </ul>
+            </div>
+                `;
+            rules.append(div);
+        }
+    }
+    function closeDiv() {
+        document.getElementById('rule').innerHTML="";
+    }
+</script>
+</body>
+</html>
